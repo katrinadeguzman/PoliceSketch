@@ -58,8 +58,11 @@
     [super viewDidLoad];
     
     self.eyes = [[ImageCollection alloc] initWithType:eyes];
+    [eyesImageView setImage:[self.eyes imageAtIndex:self.eyes.counter]];
     self.nose = [[ImageCollection alloc] initWithType:nose];
+    [noseImageView setImage:[self.nose imageAtIndex:self.nose.counter]];
     self.mouth = [[ImageCollection alloc] initWithType:mouth];
+    [mouthImageView setImage:[self.mouth imageAtIndex:self.mouth.counter]];
 }
 
 
