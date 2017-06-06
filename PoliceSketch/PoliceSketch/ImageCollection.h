@@ -17,10 +17,12 @@ typedef NS_ENUM(NSInteger)
 
 @interface ImageCollection : NSObject
 
+@property (nonatomic) int counter;
 - (instancetype)initWithType:(ImageType)type;
 
-//- (UIImage *)next;
-//- (UIImage *)previous;
 - (UIImage *)imageAtIndex:(int)index;
+
+-(void)previous;
+-(void)next;
 
 @end

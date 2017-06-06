@@ -15,117 +15,51 @@
 @property (nonatomic, strong) ImageCollection * nose;
 @property (nonatomic, strong) ImageCollection * mouth;
 
-@property (nonatomic) int eyesCounter;
-@property (nonatomic) int noseCounter;
-@property (nonatomic) int mouthCounter;
-
 @end
 
 @implementation ViewController
 
-- (void)decrementEyes {
-    self.eyesCounter--;
-    if(self.eyesCounter < 0)
-    {
-        self.eyesCounter = 4;
-    }
-}
-
-- (void)incrementEyes {
-    self.eyesCounter++;
-    if(self.eyesCounter > 4)
-    {
-        self.eyesCounter = 0;
-    }
-}
-
 -(IBAction)leftEyeArrow
 {
-    [self decrementEyes];
-    UIImage *eyesImg = [self.eyes imageAtIndex:_eyesCounter];
-    [eyesImageView setImage:eyesImg];
+    [self.eyes previous];
+    [eyesImageView setImage:[self.eyes imageAtIndex:self.eyes.counter]];
 }
 
 -(IBAction)rightEyeArrow
 {
-    [self incrementEyes];
-    UIImage *eyesImg = [self.eyes imageAtIndex:_eyesCounter];
-    [eyesImageView setImage:eyesImg];
+    [self.eyes next];
+    [eyesImageView setImage:[self.eyes imageAtIndex:self.eyes.counter]];
 }
-
-- (void)decrementNose {
-    self.noseCounter--;
-    if(self.noseCounter < 0)
-    {
-        self.noseCounter = 4;
-    }
-}
-
-- (void)incrementNose {
-    self.noseCounter++;
-    if(self.noseCounter > 4)
-    {
-        self.noseCounter = 0;
-    }
-}
-
 -(IBAction)leftNoseArrow
 {
-    [self decrementNose];
-    UIImage *noseImg = [self.nose imageAtIndex:_noseCounter];
-    [noseImageView setImage:noseImg];
+    [self.nose previous];
+    [noseImageView setImage:[self.nose imageAtIndex:self.nose.counter]];
 }
 
 -(IBAction)rightNoseArrow
 {
-    [self incrementNose];
-    UIImage *noseImg = [self.nose imageAtIndex:_noseCounter];
-    [noseImageView setImage:noseImg];
+    [self.nose next];
+    [noseImageView setImage:[self.nose imageAtIndex:self.nose.counter]];
 }
-- (void)decrementMouth {
-    self.mouthCounter--;
-    if(self.mouthCounter < 0)
-    {
-        self.mouthCounter = 4;
-    }
-}
-
-- (void)incrementMouth {
-    self.mouthCounter++;
-    if(self.mouthCounter > 4)
-    {
-        self.mouthCounter = 0;
-    }
-}
-
 -(IBAction)leftMouthArrow
 {
-    [self decrementMouth];
-    UIImage *mouthImg = [self.mouth imageAtIndex:_mouthCounter];
-    [mouthImageView setImage:mouthImg];
+    [self.mouth previous];
+    [mouthImageView setImage:[self.mouth imageAtIndex:self.mouth.counter]];
 }
 
 -(IBAction)rightMouthArrow
 {
-    [self incrementMouth];
-    UIImage *mouthImg = [self.mouth imageAtIndex:_mouthCounter];
-    [mouthImageView setImage:mouthImg];
+    [self.mouth next];
+    [mouthImageView setImage:[self.mouth imageAtIndex:self.mouth.counter]];
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.eyesCounter = 1;
-    self.noseCounter = 1;
-    self.mouthCounter = 1;
-    
     self.eyes = [[ImageCollection alloc] initWithType:eyes];
     self.nose = [[ImageCollection alloc] initWithType:nose];
     self.mouth = [[ImageCollection alloc] initWithType:mouth];
-    
-   
-    
 }
 
 

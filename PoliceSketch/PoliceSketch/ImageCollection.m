@@ -19,9 +19,9 @@
 - (instancetype)initWithType:(ImageType)type
 {
     self = [super init];
-    
-    if (self) {
-
+    _counter = 1;
+    if (self)
+    {
         switch (type)
         {
             case eyes:
@@ -54,4 +54,20 @@
               [UIImage imageNamed:[imgName stringByAppendingString:@"_5.jpg"]]];
 }
 
+-(void)previous
+{
+    self.counter--;
+    if(self.counter < 0)
+    {
+        self.counter = 4;
+    }
+}
+-(void)next
+{
+    self.counter++;
+    if(self.counter > 4)
+    {
+        self.counter = 0;
+    }
+}
 @end
